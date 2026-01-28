@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amoxicillin Syrup Dose Calculator (Paediatric)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Amoxicillin Syrup Dose Calculator</h1>
+
+  <label>Child weight (kg)</label>
+  <input type="number" id="weight" step="0.1" placeholder="e.g. 12">
+
+  <label>Syrup strength</label>
+  <select id="strength">
+    <option value="25">125 mg / 5 ml</option>
+    <option value="50">250 mg / 5 ml</option>
+  </select>
+
+  <button onclick="calculateAmox()">Calculate</button>
+
+  <div class="result" id="result"></div>
+
+  <p style="font-size:13px;color:#444;margin-top:15px;">
+    <b>Reference:</b> MIMS Malaysia, Malaysian Paediatric Protocols (MOH), BNF for Children.<br>
+    Usual dose: 20–40 mg/kg/day in divided doses (TDS).
+  </p>
+
+  <p style="font-size:12px;color:#666;">
+    ⚠️ For medical professionals only. Always verify with official references.
+  </p>
+</div>
+
+<script>
+function calculateAmox() {
+  const weight = parseFloat(document.getElementById("weight").value);
+  const mgPerMl = parseFloat(document.getElementById("strength").value);
+
+  if (!weight || weight <= 0) {
+    alert("Enter weight");
+    return;
+  }
+
+  const totalDailyMg = weight * 25; // conservative middle dose
+  const doseMg = totalDailyMg / 3; // TDS
+  const ml = doseMg / mgPerMl;
+
+  document.getElementById("result").innerHTML =
+    `Give <b>${ml.toFixed(1)} ml</b> per dose (TDS)<br>
+     Total daily dose: ${totalDailyMg.toFixed(0)} mg`;
+}
+</script>
+
+</body>
+</html>
