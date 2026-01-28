@@ -1,92 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Amoxicillin Syrup Dose Calculator (Paediatric)</title>
+  <title>Amoxicillin Syrup Dose Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-
-  <div style="display:flex;justify-content:space-between;align-items:center;">
-    <h1>Amoxicillin Dose Calculator</h1>
-    <button onclick="toggleDark()" style="padding:6px 10px;border-radius:8px;">🌙</button>
-  </div>
+  <h1>Amoxicillin Dose Calculator</h1>
 
   <!-- Weight -->
   <label><b>Child weight</b></label>
-  <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
-    <input
-      type="number"
-      id="weight"
-      step="0.1"
-      placeholder="e.g. 12"
-      style="
-        width:120px;
-        padding:10px;
-        border-radius:10px;
-        border:1px solid #ccc;
-        font-size:16px;
-      "
-    >
+  <div class="weight-row">
+    <input type="number" id="weight" placeholder="e.g. 12">
     <span>kg</span>
   </div>
 
   <!-- Strength -->
-  <div style="margin-top:14px;">
-    <label><b>Syrup strength</b></label>
-
-    <div style="
-      display:grid;
-      grid-template-columns:20px auto;
-      column-gap:12px;
-      row-gap:12px;
-      align-items:center;
-      margin-top:8px;
-    ">
-      <input type="radio" name="strength" value="25" checked style="transform:scale(0.9);">
-      <span>125 mg / 5 ml</span>
-
-      <input type="radio" name="strength" value="50" style="transform:scale(0.9);">
-      <span>250 mg / 5 ml</span>
-    </div>
+  <label style="margin-top:14px;"><b>Syrup strength</b></label>
+  <div class="strength-grid">
+    <label><input type="radio" name="strength" value="25" checked> 125 mg / 5 ml</label>
+    <label><input type="radio" name="strength" value="50"> 250 mg / 5 ml</label>
   </div>
 
   <!-- Button -->
-  <button onclick="calculateAmox()" style="margin-top:16px;">Calculate</button>
+  <button class="main-btn" onclick="calculateAmox()">Calculate</button>
 
   <!-- Result -->
   <div class="result" id="result"></div>
 
-  <!-- Scope note -->
-  <div class="scope" style="margin-top:16px;padding:10px;border-radius:8px;font-size:13px;">
+  <!-- Scope -->
+  <div class="scope">
     <b>Scope note:</b><br>
     This calculator provides <b>general paediatric dosing only</b>.<br>
     For indication-specific dosing (e.g. <i>Strep A, otitis media, pneumonia</i>),
     refer to <b>local or national guidelines</b>.
   </div>
 
-  <!-- References -->
-  <p style="font-size:13px;margin-top:14px;">
+  <!-- Reference -->
+  <p class="ref">
     <b>Reference:</b><br>
     MIMS Malaysia, Malaysian Paediatric Protocols (MOH), BNF for Children.<br>
     Dose: 20–40 mg/kg/day in divided doses (TDS).<br>
     ≥40 kg uses adult dosing.
   </p>
 
-  <p style="font-size:12px;color:#666;">
+  <p class="warn">
     ⚠️ For medical professionals only. Always verify with official references.
   </p>
-
 </div>
+
+<!-- Floating Dark Mode Button -->
+<button id="darkToggle" onclick="toggleDark()">🌙</button>
 
 <script>
 function calculateAmox() {
   const weight = parseFloat(document.getElementById("weight").value);
-  const mgPerMl = parseFloat(
-    document.querySelector('input[name="strength"]:checked').value
-  );
+  const mgPerMl = parseFloat(document.querySelector('input[name="strength"]:checked').value);
 
   if (!weight || weight <= 0) {
     alert("Enter weight");
@@ -96,14 +67,12 @@ function calculateAmox() {
   let totalDailyMg;
 
   if (weight >= 40) {
-    totalDailyMg = 1500; // adult dose
+    totalDailyMg = 1500;
   } else {
     totalDailyMg = weight * 25;
   }
 
-  if (totalDailyMg > 3000) {
-    totalDailyMg = 3000;
-  }
+  if (totalDailyMg > 3000) totalDailyMg = 3000;
 
   const doseMg = totalDailyMg / 3;
   const ml = doseMg / mgPerMl;
@@ -114,7 +83,6 @@ function calculateAmox() {
     (weight >= 40 ? "<br><small>(Adult dose applied)</small>" : "");
 }
 
-/* Dark mode */
 function toggleDark() {
   document.body.classList.toggle("dark");
   localStorage.setItem("darkMode", document.body.classList.contains("dark"));
