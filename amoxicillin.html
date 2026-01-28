@@ -23,9 +23,20 @@
 
   <div class="result" id="result"></div>
 
+  <!-- 🔵 SCOPE NOTE (NEW) -->
+  <div style="margin-top:15px;padding:10px;background:#fff3cd;border-radius:6px;font-size:13px;">
+    <b>Scope note:</b><br>
+    This calculator provides <b>general paediatric dosing only</b>.<br>
+    For indication-specific dosing (e.g. <i>Strep A, otitis media, pneumonia</i>),
+    refer to <b>local or national guidelines</b>.
+  </div>
+
+  <!-- REFERENCES -->
   <p style="font-size:13px;color:#444;margin-top:15px;">
-    <b>Reference:</b> MIMS Malaysia, Malaysian Paediatric Protocols (MOH), BNF for Children.<br>
-    Usual dose: 20–40 mg/kg/day in divided doses (TDS).
+    <b>Reference:</b><br>
+    MIMS Malaysia, Malaysian Paediatric Protocols (MOH), BNF for Children.<br>
+    Usual dose: 20–40 mg/kg/day in divided doses (TDS).<br>
+    Children ≥40 kg: use adult dosing (dose capped).
   </p>
 
   <p style="font-size:12px;color:#666;">
@@ -43,15 +54,29 @@ function calculateAmox() {
     return;
   }
 
-  const totalDailyMg = weight * 25; // conservative middle dose
+  let totalDailyMg;
+
+  if (weight >= 40) {
+    totalDailyMg = 1500; // adult dose: 500 mg TDS
+  } else {
+    totalDailyMg = weight * 25; // general paeds dose
+  }
+
+  // max cap
+  if (totalDailyMg > 3000) {
+    totalDailyMg = 3000;
+  }
+
   const doseMg = totalDailyMg / 3; // TDS
   const ml = doseMg / mgPerMl;
 
   document.getElementById("result").innerHTML =
     `Give <b>${ml.toFixed(1)} ml</b> per dose (TDS)<br>
-     Total daily dose: ${totalDailyMg.toFixed(0)} mg`;
+     Total daily dose: ${totalDailyMg.toFixed(0)} mg` +
+    (weight >= 40 ? "<br><small>(Adult dose applied)</small>" : "");
 }
 </script>
 
 </body>
 </html>
+
