@@ -31,3 +31,31 @@ button {
   background: #e0f2fe;
   border-radius: 6px;
 }
+
+.dark {
+  background:#111;
+  color:#eee;
+}
+
+.dark .container {
+  background:#1c1c1c;
+}
+
+.dark input,
+.dark button {
+  background:#222;
+  color:#fff;
+  border:1px solid #444;
+}
+
+.dark .result {
+  background:#0f2a3a;
+}
+
+.scope {
+  background:#fff3cd;
+}
+
+.dark .scope {
+  background:#3a2f0f;
+}
