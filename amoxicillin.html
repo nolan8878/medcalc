@@ -15,18 +15,18 @@
   <input type="number" id="weight" step="0.1" placeholder="e.g. 12">
 
   <!-- Strength -->
-  <div style="margin-top:10px;">
-    <label><b>Syrup strength</b></label><br>
+  <div style="margin-top:12px;">
+    <label><b>Syrup strength</b></label>
 
-    <label>
-      <input type="radio" name="strength" value="25" checked>
-      125 mg / 5 ml
-    </label><br>
+    <div style="display:flex;align-items:center;margin-top:6px;">
+      <input type="radio" name="strength" value="25" checked style="margin-right:8px;">
+      <span>125 mg / 5 ml</span>
+    </div>
 
-    <label>
-      <input type="radio" name="strength" value="50">
-      250 mg / 5 ml
-    </label>
+    <div style="display:flex;align-items:center;margin-top:6px;">
+      <input type="radio" name="strength" value="50" style="margin-right:8px;">
+      <span>250 mg / 5 ml</span>
+    </div>
   </div>
 
   <!-- Button -->
@@ -82,7 +82,7 @@ function calculateAmox() {
     totalDailyMg = 3000;
   }
 
-  const doseMg = totalDailyMg / 3; // TDS
+  const doseMg = totalDailyMg / 3;
   const ml = doseMg / mgPerMl;
 
   document.getElementById("result").innerHTML =
