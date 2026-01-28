@@ -15,19 +15,17 @@
   <input type="number" id="weight" step="0.1" placeholder="e.g. 12">
 
   <!-- Strength -->
-  <div style="margin-top:12px;">
-    <label><b>Syrup strength</b></label>
+<div style="margin-top:12px;">
+  <label><b>Syrup strength</b></label>
 
-    <div style="display:flex;align-items:center;margin-top:6px;">
-      <input type="radio" name="strength" value="25" checked style="margin-right:8px;">
-      <span>125 mg / 5 ml</span>
-    </div>
+  <div style="display:grid;grid-template-columns:24px auto;row-gap:8px;align-items:center;margin-top:6px;">
+    <input type="radio" name="strength" value="25" checked>
+    <span>125 mg / 5 ml</span>
 
-    <div style="display:flex;align-items:center;margin-top:6px;">
-      <input type="radio" name="strength" value="50" style="margin-right:8px;">
-      <span>250 mg / 5 ml</span>
-    </div>
+    <input type="radio" name="strength" value="50">
+    <span>250 mg / 5 ml</span>
   </div>
+</div>
 
   <!-- Button -->
   <button onclick="calculateAmox()">Calculate</button>
