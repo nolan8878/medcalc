@@ -1,61 +1,254 @@
 body {
-  font-family: system-ui;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: #f5f5f5;
   margin: 0;
+  padding: 0;
 }
 
 .container {
-  max-width: 480px;
+  max-width: 520px;
   margin: auto;
+  padding: 20px;
   background: #fff;
-  padding: 16px;
+  min-height: 100vh;
 }
 
-input, select, button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
+h1 {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.weight-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.weight-row input {
+  width: 120px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
   font-size: 16px;
 }
 
-button {
-  background: #2563eb;
-  color: white;
+.strength-grid {
+  margin-top: 8px;
+  display: grid;
+  row-gap: 10px;
+}
+
+.main-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
 }
 
 .result {
-  margin-top: 15px;
-  padding: 10px;
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
   background: #e0f2fe;
-  border-radius: 6px;
 }
 
+.scope {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff3cd;
+  font-size: 13px;
+}
+
+.ref {
+  font-size: 13px;
+  margin-top: 14px;
+}
+
+.warn {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Floating dark mode button */
+#darkToggle {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* DARK MODE */
 .dark {
-  background:#111;
-  color:#eee;
+  background: #111;
+  color: #eee;
 }
 
 .dark .container {
-  background:#1c1c1c;
+  background: #1c1c1c;
 }
 
 .dark input,
 .dark button {
-  background:#222;
-  color:#fff;
-  border:1px solid #444;
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
 }
 
 .dark .result {
-  background:#0f2a3a;
-}
-
-.scope {
-  background:#fff3cd;
+  background: #0f2a3a;
 }
 
 .dark .scope {
-  background:#3a2f0f;
+  background: #3a2f0f;
+}
+
+.dark #darkToggle {
+  background: #eee;
+  color: #000;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 520px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.weight-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.weight-row input {
+  width: 120px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.strength-grid {
+  margin-top: 8px;
+  display: grid;
+  row-gap: 10px;
+}
+
+.main-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+}
+
+.result {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #e0f2fe;
+}
+
+.scope {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff3cd;
+  font-size: 13px;
+}
+
+.ref {
+  font-size: 13px;
+  margin-top: 14px;
+}
+
+.warn {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Floating dark mode button */
+#darkToggle {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  z-index: 9999;
+}
+
+/* DARK MODE */
+.dark {
+  background: #111;
+  color: #eee;
+}
+
+.dark .container {
+  background: #1c1c1c;
+}
+
+.dark input,
+.dark button {
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark .result {
+  background: #0f2a3a;
+}
+
+.dark .scope {
+  background: #3a2f0f;
+}
+
+.dark #darkToggle {
+  background: #eee;
+  color: #000;
 }
