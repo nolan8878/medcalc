@@ -2,25 +2,18 @@
 <html>
 <head>
   <title>Medical Dose Calculator</title>
+
+  <!-- Google verification -->
   <meta name="google-site-verification" content="nfTS7mLhZ1DE96QiMd1RAj1x2vBOoeq3WILuoR4bI5E" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Simple paediatric dose calculators for daily clinical practice.">
+
+  <!-- SEO -->
   <meta name="description" content="Simple paediatric drug dose calculators for doctors and healthcare professionals. Includes amoxicillin and paracetamol syrup dosing.">
-<meta name="keywords" content="paediatric dose calculator, amoxicillin dose, paracetamol dose, syrup calculator, medical calculator malaysia">
+  <meta name="keywords" content="paediatric dose calculator, amoxicillin dose, paracetamol dose, syrup calculator, medical calculator malaysia">
+
   <link rel="stylesheet" href="style.css">
 </head>
-  <button id="darkToggle" onclick="toggleDark()">🌙</button>
-
-<script>
-function toggleDark() {
-  document.body.classList.toggle("dark");
-  localStorage.setItem("darkMode", document.body.classList.contains("dark"));
-}
-
-if (localStorage.getItem("darkMode") === "true") {
-  document.body.classList.add("dark");
-}
-</script>
 
 <body>
 
@@ -51,6 +44,20 @@ if (localStorage.getItem("darkMode") === "true") {
   </p>
 
 </div>
+
+<!-- Dark mode toggle -->
+<button id="darkToggle" onclick="toggleDark()">🌙</button>
+
+<script>
+function toggleDark() {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+}
+
+if (localStorage.getItem("darkMode") === "true") {
+  document.body.classList.add("dark");
+}
+</script>
 
 </body>
 </html>
