@@ -256,3 +256,30 @@ label {
 .result {
   border: 1px solid #dbeafe;
 }
+
+.card {
+  background:#f8fafc;
+  padding:16px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  margin-top:20px;
+}
+
+.card ul {
+  padding-left:18px;
+}
+
+.card li {
+  margin:10px 0;
+}
+
+.card a {
+  text-decoration:none;
+  font-size:16px;
+  color:#2563eb;
+}
+
+.dark .card {
+  background:#1f2937;
+  border-color:#374151;
+}
