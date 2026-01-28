@@ -252,3 +252,7 @@ label {
   background: #eee;
   color: #000;
 }
+
+.result {
+  border: 1px solid #dbeafe;
+}
